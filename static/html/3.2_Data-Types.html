@@ -21,7 +21,8 @@ class: left
 
 * Rust is a statically typed language and every value is of a certain `type`
 
-* You can assign the types or compiler infer types based on the `value` and `how it is used`
+* You can assign the types or compiler will infers types based on the `value` 
+  and `how it is used`
 
 * In case if it can't you have to provide `type annotations`
 
@@ -104,7 +105,8 @@ fn main() {
 
 * represents a Unicode Scalar Value
 
-* ASCII, Accented letters, Chinese/Japanese/Korean ideographs, emoji, and zero width spaces
+* ASCII, Accented letters, Chinese/Japanese/Korean ideographs, emoji, and zero 
+  width spaces
 
 ---
 class: left
@@ -115,6 +117,8 @@ class: left
 
 * Tuples and Arrays
 
+<!-- what about strings ? -->
+
 ---
 class: left
 
@@ -124,28 +128,26 @@ class: left
 
 * Can have different types of values
 
-* Access elements by...
-
-* Destructuring, through pattern matching 
+* Access elements by destructuring through pattern matching 
 
 ```rust
 fn main() {
-  let tup = (500, 6.4, 1);
-
+  let tup = (500, 6.4, 'X'); // infered
   let (x, y, z) = tup;
 
   println!("The value of y is: {}", y);
 }
 ```
+<!-- can tuples be extended -->
 
 ---
 class: left
 
-* Access through `.`
+* Can also access through dot notation
 
 ```rust
 fn main() {
-  let x: (i32, f64, u8) = (500, 6.4, 1);
+  let x: (i32, f64, char) = (500, 6.4, 'x');
 
   let five_hundred = x.0;
 
@@ -162,11 +164,24 @@ class: left
 
 * A comma-separated list of values inside square brackets
 
-* Unlike a tuple, every element of an array must have the same type
+* Unlike a tuple, every element of an array must be of same type
 
 * arrays are fixed length
 
-* Access elements by `Indexing`
+```rust
+fn main() {
+  let a: [i32; 5] = [1, 2, 3, 4, 5];
+}
+```
+
+---
+class: left
+
+# Access elements
+
+* Invalid array element access results in a runtime error 
+
+* Access individual values in the array by `Indexing`
 
 ```rust
 fn main() {
@@ -176,14 +191,23 @@ fn main() {
   let second = a[1];
 }
 ```
-* Invalid array element access results in a runtime error 
 
-** tuple of tuples and array of arrays
-      
+<!-- ** tuple of tuples and array of arrays -->
+
 ---
 class: left
 
 # Summary
+
+* Rust is a static typed language
+
+* Scalar types like Integers, floating-point numbers, booleans and characters
+
+* Compound types like tuple and Array
+
+* Tuples can be mixed type 
+
+* Arrays should be single type and fixed length
 
     </textarea>
   <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">

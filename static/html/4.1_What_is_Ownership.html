@@ -20,7 +20,7 @@ class: left
 
 # Memory
 
-* Parts of memory that is available to your code to use at runtime
+* A Part of memory is available to your code to use at runtime
 
 * They are structured in two ways, stack and heap
 
@@ -29,9 +29,9 @@ class: left
 
 # Stack 
 
-* The stack stores values in the order it gets and removes in the opposite order
+* Stack stores values in the order it gets and removes in the opposite order
 
-* This is referred to as last in, first out (LIFO) 
+* This is referred to as last in, first out (LIFO)
 
 * Adding data is called `push`ing onto the stack
 
@@ -50,7 +50,7 @@ class: left
 
 * On requesting, os will find a space, mark it as use and then returns the address
 
-* Address is called `Pointer`
+* Address is the `Pointer`
 
 * Process of allocating memory is called `allocation on the heap` or simply `allocation`
 
@@ -67,11 +67,13 @@ class: left
 
 Different styles of memory management...
 
-* Garbage collection, a program that constantly looks for unused memory and cleans at run-time
+* **Garbage collection**, a program that constantly looks for unused memory and 
+  cleans at run-time
 
-* Manual, programmer must explicitly allocate and free the memory 
+* **Manual**, programmer must explicitly allocate and free the memory 
 
-* Follow a set of `ownership rules` that the compiler checks at compile time with no run-time cost
+* Follow a set of **ownership rules**, that the compiler checks at compile time 
+  with no run-time cost
 
 Rust falls under the third category
 
@@ -82,15 +84,14 @@ class: left
 
 Ownership defines a set of rules which takes care of 
 
-* keeping track of what parts of code are using
+* keeping track of what parts of code are using what data on the heap
 
-* what data on the heap
+* minimizing the amount of duplicate data
 
-* minimizing the amount of duplicate
-
-* cleaning up
+* cleaning up unused data
 
 * No need to think of stack and heap once you start following ownership rules.
+
 ---
 class: left
 
@@ -162,11 +163,13 @@ let s1 = String::from("hello");
 let s2 = s1;
 ```
 
-* Allocate the heap for `hello` and push onto stack for the pointer, length and capacity with variable s1
+* Allocate the heap for `hello` and push onto stack for the pointer, length and 
+  capacity with variable s1
 
 * Copy the stack memory to the new variable s2
 
-* Invalidate s1 as both of them are pointing to the same heap because rust can't decide which one to drop at the end of the scope
+* Invalidate s1 as both of them are pointing to the same heap because rust can't 
+  decide which one to drop at the end of the scope
 
 ---
 class: left
@@ -181,9 +184,10 @@ let s2 = s1.clone();
 println!("s1 = {}, s2 = {}", s1, s2);
 ```
 
-* Allocate the heap for `hello` and push onto stack for the pointer, length and capacity with variable s1
+* Allocate the heap for `hello` and push onto stack for the pointer, length and 
+  capacity with variable s1
 
-* Clone the stack memory and heap memory to the new variable s2
+* Clone the stack memory and heap memory for the new variable s2
 
 ---
 class: left
@@ -201,18 +205,20 @@ let y = x;
 
 * Not a move operation because, 5 is an integer of known size and allocated in stack
 
-* There is no difference between deep and shallow Copy
+* There is no difference between deep and shallow copy, in this case
 
 * Any group of simple scalar types can be Copy
 
-* Tuples, but only if they contain types that are also Copy. (i32, i32) is Copy, but (i32, String) is not.
+* Tuples also, but only if they contain types that are also Copy. 
+  (i32, i32) is Copy, but (i32, String) is not.
 
 ---
 class: left
 
 # Ownership and Functions
 
-* Passing a variable to a function will move or copy, just like assignment based on the type
+* Passing a variable to a function will move or copy, just like assignment based 
+  on the type
 
 ---
 class: left
@@ -245,7 +251,8 @@ class: left
 
 # Return Values and Scope
 
-* Returning a variable from a function will move or copy, just like assignment based on the type
+* Returning a variable from a function will move or copy, just like assignment 
+  based on the type
 
 ---
 class: left
@@ -280,6 +287,21 @@ fn makes_copy(some_integer: i32) { // some_integer comes into scope.
 class: left
 
 # Summary
+
+* Memory will be in stack and heap
+
+* Memory management is done by Garbage collection, manual or ownership rules
+
+* Rust uses Ownership rules 
+
+* Each value will have one and only one owner and its dropped if the owner goes 
+  out of scope
+
+* variable scope is limited to the block defined in the {}
+
+* variables and data intereact by move, clone and copy operations
+
+* passing a variable to a function is also like an assignment based on the type
 
     </textarea>
   <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">

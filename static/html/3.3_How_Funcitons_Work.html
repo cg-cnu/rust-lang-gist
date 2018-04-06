@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>The Rust Programming Language - Slides</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <title>The Rust Programming Language - Slides</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 
 <body>
-    <textarea id="source">
+  <textarea id="source">
 class: middle, center
 
 ### 3.3
@@ -93,8 +93,8 @@ class: left
 # Functions with Return Values
 
 * Functions can return values
-* Return value is synonymous with the value of the final expression
-* Return early using `return` keyword or last expression implicityly
+* Return type is synonymous with the value of the final expression
+* Return early using `return` keyword or last expression implicitly
 
 ---
 class: left
@@ -134,7 +134,8 @@ fn plus_one(x: i32) -> i32 {
 }
 ```
 * expect the return type `i32`
-* `x+1` evaluates to an expression and give an `i32` but `;` makes it a statement and returns nothing
+* `x+1` evaluates to an expression and give an `i32` but `;` makes it a statement
+  and returns nothing
 * panics with `mismatched types` error.       
 
 ---
@@ -143,11 +144,11 @@ class: left
 # Summary
 
     </textarea>
-    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
-    </script>
-    <script type="text/javascript">
-        var slideshow = remark.create();
-    </script>
+  <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+  </script>
+  <script type="text/javascript">
+    var slideshow = remark.create();
+  </script>
 </body>
 
 </html>

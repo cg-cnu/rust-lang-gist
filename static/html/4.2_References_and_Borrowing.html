@@ -22,7 +22,7 @@ class: left
 
 * let a function use a value but not take ownership
 
-* You pass reference by appending with `&`
+* You pass references by appending with `&`
 
 ```rust
 fn main() {
@@ -47,7 +47,7 @@ class: left
 
 * `&` lets you refer to some value without taking ownership of it
 
-* Since we don't have ownership, 
+* Since we don't have ownership
   
   * No need to return the values to give back ownership
   
@@ -58,9 +58,9 @@ class: left
 
 # Mutable References
 
-* Like variables, references are also immutable by default.
+* Like variables, references are also immutable by default
 
-* Need to use `mut` to makeit mutable
+* Use `mut` to make it mutable
 
 ```rust
 fn main() {
@@ -80,22 +80,22 @@ class: left
 
 * One mutable reference, in a particular scope
 
-or
+  or
 
 * Any number of immutable references.
 
-and 
+  and 
 
-* References must always be valid.
+* Valid references
 
 ---
 class: left
 
 # One mutable reference
 
-You can only have one mutable reference to a particular piece of data in a particular scope
+You can only have one mutable reference to a particular piece of data in a single scope
 
-```
+```rust
 let mut s = String::from("hello");
 let r1 = &mut s;
 let r2 = &mut s;
@@ -121,6 +121,8 @@ let r2 = &s; // no problem
 let r3 = &mut s; // BIG PROBLEM
 ```
 
+* even in different scopes
+
 ---
 class: left
 
@@ -134,15 +136,18 @@ A data race is similar to a race condition and happens when these three behavior
 
 * There’s no mechanism being used to synchronize access to the data.
 
-* limited mutable references prevents this data race from happening
+Mutable references, with above characterestics prevents data race from happening
 
 ---
 class: left
 
-# Dangline References
+# Dangling References
 
-* a pointer that may have been given to someone else while preserving a pointer to that memory
-* Rust guarentees that the data will not go out of scope before the reference to the data does.
+* a pointer that references a location in memory that may have been given to 
+  someone else, by freeing some memory while preserving a pointer to that memory
+
+  * Rust guarentees that the data will not go out of scope before the reference 
+  to the data does
 
 ```rust
 fn main() {
@@ -161,6 +166,16 @@ fn dangle() -> &String {
 class: left
 
 # Summary
+
+* use **&** pass references to functions rather than giving ownership
+
+* References are also immutable by default; use **mut** to make it mutable
+
+* They has to be one mutable reference or can have multiple immutable references
+  and they have be valid refernces
+
+* This fixes data race conditions and dangling references
+
 
     </textarea>
   <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">

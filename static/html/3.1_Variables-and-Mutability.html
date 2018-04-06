@@ -98,6 +98,8 @@ The value of x is: 5
 The value of x is: 6
 ```
 
+* `mut` will let you change the value not the type
+
 ---
 class: left
 
@@ -105,7 +107,7 @@ class: left
 
 * `immutable` is different from `const`
 * Constants aren’t only immutable by default, they’re always immutable
-* Can't assgin functions to `const`
+* Can't assign functions to `const`
 * Can't use `mut` with `constants`
 
 ---
@@ -124,8 +126,8 @@ fn main() {
   println!("The value of x is: {}", x);
 }
 ```
-* When declaring a new variable using `let` with the same name as the old variable,
-the new variable is shadowing the old one.
+* When declaring a new variable using `let` with the same name as the old variable, 
+  the new variable is shadowing the old one.
 * Shadowing helps perform transformations on immutable variables
 * Shadowing effectively creates a new variable with the same name
 
