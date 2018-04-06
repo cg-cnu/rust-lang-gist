@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>The Rust Programming Language - Slides</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../css/styles.css">
+</head>
+
+<body>
+    <textarea id="source">
+class: middle, center
+
+### 3.3
+# How Functions Work
+
+---
+class: left
+
+# Functions
+
+* `fn` declares a function
+
+* `main` function is the default entry point for the program
+
+* `snake_case` is the convention for function names
+
+* You can access functions above their declaration
+
+---
+class: left
+
+# Function Parameters
+
+* special variables that are part of a function’s signature
+
+```rust
+fn main() {
+    another_function(5);
+}
+
+fn another_function(x: i32) {
+    println!("The value of x is: {}", x);
+}
+```
+* separate multiple parameter declarations with commas
+
+---
+class: left
+
+# Statements
+
+* Instructions that perform some action and do not return a value
+
+```rust
+let y = 6;
+```
+* You can't 
+
+```rust
+let x = (let y = 6);
+
+```
+
+because `(let y = 6);` is a statement, dosen't return any value
+
+---
+class: left
+
+# Expressions
+
+* Instructions that perform some action and return a value
+
+* Expressions allways evaluate to a resulting value
+
+* In `let y = 6;`  6 is an expression
+
+* `5 + 6` is an expression
+
+* Calling a function, macro and new scopes `{}` are expressions
+
+---
+class: left
+
+# Statements and Expressions
+
+* Adding a semicolon to the end of an expression, makes it a statement
+<!-- give more examples and variations -->
+
+---
+class: left
+
+# Functions with Return Values
+
+* Functions can return values
+* Return value is synonymous with the value of the final expression
+* Return early using `return` keyword or last expression implicityly
+
+---
+class: left
+
+# Example 1
+*
+```rust
+fn five() -> i32 {
+    5
+}
+```
+
+* 5 is the last expression and it is returned implicitly
+
+---
+class: left
+
+# Example 2
+
+```rust
+fn main() {
+    let x = five();
+
+    println!("The value of x is: {}", x);
+    // Do we need the semicolon here... ?
+}
+```
+
+---
+class: left
+
+# Example 3
+
+```rust
+fn plus_one(x: i32) -> i32 {
+    x + 1;
+}
+```
+* expect the return type `i32`
+* `x+1` evaluates to an expression and give an `i32` but `;` makes it a statement and returns nothing
+* panics with `mismatched types` error.       
+
+---
+class: left
+
+# Summary
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+        var slideshow = remark.create();
+    </script>
+</body>
+
+</html>
