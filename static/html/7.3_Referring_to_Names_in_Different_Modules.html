@@ -16,7 +16,131 @@ class: middle, center
 ---
 class: left
 
-# Title 1
+# Calling a function in module
+
+```rust
+pub mod a {
+  pub mod series {
+      pub mod of {
+          pub fn nested_modules() {}
+      }
+  }
+}
+
+fn main() {
+  a::series::of::nested_modules();
+}
+```
+
+---
+class: left
+
+# Bringing module Names into Scope with the `use` Keyword
+
+```rust
+pub mod a {
+  pub mod series {
+      pub mod of {
+          pub fn nested_modules() {}
+      }
+  }
+}
+
+use a::series::of;
+
+fn main() {
+  of::nested_modules();
+}
+```
+
+---
+class: left
+
+# Bringing functions into Scope with the `use` Keyword
+
+```rust
+pub mod a {
+  pub mod series {
+      pub mod of {
+          pub fn nested_modules() {}
+      }
+  }
+}
+
+use a::series::of::nested_modules;
+
+fn main() {
+  nested_modules();
+}
+```
+
+---
+class: left
+
+# Bringing `enums` into Scope with the `use` Keyword
+
+```rust
+enum TrafficLight {
+  Red,
+  Yellow,
+  Green,
+}
+
+use TrafficLight::{Red, Yellow};
+
+fn main() {
+  let red = Red;
+  let yellow = Yellow;
+  let green = TrafficLight::Green;
+}
+```
+Still specifying the TrafficLight namespace for the Green variant because we 
+didn’t include Green in the use statement
+
+---
+class: left
+
+# Bringing All Names into Scope with a Glob
+
+Bring all the items in a namespace into scope at once using `*` 
+
+```rust
+enum TrafficLight {
+  Red,
+  Yellow,
+  Green,
+}
+use TrafficLight::*;
+fn main() {
+  let red = Red;
+  let yellow = Yellow;
+  let green = Green;
+}
+```
+
+use globs sparingly, they might cause naming conflicts
+
+---
+class: left
+
+# Using super to Access a Parent Module
+
+Access root of the module using the `::` at the start 
+
+```rust
+::client::connect();
+```
+
+Access parent of the current module using `super::`
+
+```rust
+super::client::connect();
+```
+
+---
+class: left
+
+# Summary
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">

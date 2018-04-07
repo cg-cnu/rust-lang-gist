@@ -16,9 +16,160 @@ class: middle, center
 ---
 class: left
 
-# Title 1
+# Vectors Store Lists of Values
 
-    </textarea>
+* Vector also represented as `Vec<T>`
+
+* store more than one value in a single data structure that puts all the values 
+  next to each other in memory
+
+* Can only store values of the same type
+
+---
+class: left
+
+# Creating a New Vector
+
+* function
+
+```rust
+let v: Vec<i32> = Vec::new();
+```
+
+* macro
+
+```rust
+let v = vec![1, 2, 3];
+```
+
+---
+class: left
+
+# Updating a Vector
+
+Create a dummy vector and then add values
+
+```rust
+let mut v = Vec::new();
+
+v.push(5);
+v.push(6);
+v.push(7);
+```
+
+*** ? 
+* The numbers we place inside are all of type i32, and Rust infers this from the data, so we don’t need the Vec<i32> annotation.
+
+---
+class: left
+
+# Dropping a Vector Drops Its Elements
+
+---
+class: left
+
+# Reading Elements of Vectors
+
+Two ways to reference a value stored in a vector, which helps how the program 
+behaves when you try to use an index value that the vector doesn’t have an element for.
+
+```rust
+let v = vec![1, 2, 3, 4, 5];
+let third: &i32 = &v[2];
+```
+
+* gives the reference to the third element
+* Non existent element access will cause a panic!
+
+```rust
+let v = vec![1, 2, 3, 4, 5];
+let third: Option<&i32> = v.get(2);
+```
+
+* get method with the index passed as an argument gives us Option<&T>.
+* Non existent element access will return `None` without panicking
+
+---
+class: left
+
+# Invalid References
+
+```rust
+let mut v = vec![1, 2, 3, 4, 5];
+let first = &v[0];
+v.push(6);
+```
+
+* Can't add an element to a vector while holding a reference to an item
+
+* reason: adding a new element onto the end of the vector might require 
+allocating new memory and copying the old elements to the new space. 
+In that case, the reference to the first element would be pointing to 
+deallocated memory.(dangling references) 
+The borrowing rules prevent programs from ending up in that situation.
+
+---
+class: left
+
+# Iterating Over the Values in a Vector
+
+* with immutable reference to elements
+
+```rust
+let v = vec![100, 32, 57];
+for i in &v {
+  println!("{}", i);
+}
+```
+
+* with mutable reference to elements
+
+```rust
+let mut v = vec![100, 32, 57];
+for i in &mut v {
+  *i += 50;
+}
+```
+
+To change the value that the mutable reference refers to, we have to use the 
+dereference operator (*) to get to the value in i before we can use the += operator
+
+---
+class: left
+
+# Using an Enum to Store Multiple Types
+
+* Vectors can only store values that are the same type
+
+* The variants of an enum are defined under the same enum type, 
+  so we cab use an enum!
+
+```rust
+enum SpreadsheetCell {
+  Int(i32),
+  Float(f64),
+  Text(String),
+}
+
+let row = vec![
+  SpreadsheetCell::Int(3),
+  SpreadsheetCell::Text(String::from("blue")),
+  SpreadsheetCell::Float(10.12),
+];
+```
+
+---
+class: left
+
+
+* Explicit about what types are allowed in this vector
+
+* Rust needs to know types in a vector at compile time to assign exactly how 
+  much memory on the heap will be needed to store each element
+
+* Using an enum plus a match expression means that we always handle every possible case
+
+      </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
     </script>
     <script type="text/javascript">

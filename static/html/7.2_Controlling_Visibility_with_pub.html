@@ -16,7 +16,23 @@ class: middle, center
 ---
 class: left
 
-# Title 1
+# `pub`
+
+* use `pub` keyword to make module, functions and types public
+
+* Compiler warns the functions are not used if they are not public
+
+---
+class: left
+
+# Privacy Rules
+
+Overall, these are the rules for item visibility:
+
+* If an item is public, it can be accessed through any of its parent modules
+
+* If an item is private, it can be accessed only by its immediate parent module 
+  and any of the parent’s child modules
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">

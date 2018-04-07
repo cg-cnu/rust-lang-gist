@@ -18,8 +18,8 @@ class: left
 
 # Defining Methods
 
-* Methods are similar to functions, except they’re defined within the 
-  context of a struct, enum or trait and their first parameter is always **self**
+Methods are similar to functions, except they’re defined within the 
+context of a struct, enum or trait and their first parameter is always **self**
 
 ```rust
 #[derive(Debug)]
@@ -27,16 +27,13 @@ struct Rectangle {
   width: u32,
   height: u32,
 }
-
 impl Rectangle {
   fn area(&self) -> u32 {
       self.width * self.height
   }
 }
-
 fn main() {
   let rect1 = Rectangle { width: 30, height: 50 };
-
   println!(
       "The area of the rectangle is {} square pixels.",
       rect1.area()
@@ -93,6 +90,7 @@ let sq = Rectangle::square(3);
 ```
 
 * The funciton is namespace by the struct
+
 * `::` is used for both Associated funcitons and the namespace created by modules
 
 ---
@@ -119,36 +117,19 @@ impl Rectangle {
 ---
 class: left
 
-# Title 4
+# Summary
 
----
-class: left
+* Methods are functions defined in a `impl` block with a default paramter `&self`
 
-# Title 5
+* They are invoked with `.` syntax
 
----
-class: left
+* Methods without default `&self` paramter are called Associated Functions
 
-# Title 6
+* They are invoked with `::` synxtax
 
----
-class: left
+* A struct can have multiple `impl` blocks
 
-# Title 7
-
----
-class: left
-
-# Title 8
-
----
-class: left
-
-# Title 9
-
-      
-
-    </textarea>
+</textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
     </script>
     <script type="text/javascript">

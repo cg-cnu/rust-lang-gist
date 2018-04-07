@@ -126,6 +126,7 @@ class: left
 
 * In case of mutable, growable piece of text, we need to allocate memory on heap -->
 
+<!-- change the example here... -->
 ```rust 
 let mut s = String::from("hello");
 
@@ -209,8 +210,8 @@ let y = x;
 
 * Any group of simple scalar types can be Copy
 
-* Tuples also, but only if they contain types that are also Copy. 
-  (i32, i32) is Copy, but (i32, String) is not.
+* Tuples also, but only if they contain types that are also Copy,
+  (i32, i32) is Copy, but (i32, String) is not
 
 ---
 class: left

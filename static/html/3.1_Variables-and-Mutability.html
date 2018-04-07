@@ -12,10 +12,12 @@
 class: middle, center
 
 ### 3.1
+
 # Variables and Mutability
 
 ---
 class: left
+
 # Variables
 
 * Variables are declared using `let`
@@ -51,6 +53,7 @@ The total no of pigs are: 5
 ```
 
 * Use all upper case with underscores between words
+
 * Valid for the entire run of the program in the defined scope
 
 ---
@@ -106,8 +109,13 @@ class: left
 # Immutable vs Constants
 
 * `immutable` is different from `const`
+
 * Constants aren’t only immutable by default, they’re always immutable
+
 * Can't assign functions to `const`
+
+* Can't use if expressions with const
+
 * Can't use `mut` with `constants`
 
 ---
@@ -128,8 +136,10 @@ fn main() {
 ```
 * When declaring a new variable using `let` with the same name as the old variable, 
   the new variable is shadowing the old one.
-* Shadowing helps perform transformations on immutable variables
-* Shadowing effectively creates a new variable with the same name
+
+  * Shadowing helps perform transformations on immutable variables
+
+  * Shadowing effectively creates a new variable with the same name
 
 ---
 class: left
@@ -137,6 +147,7 @@ class: left
 # Mutable vs Shadowing
 
 * `mut` changes the value where as `shadowing` creates a new variable
+
 * This gives the flexibility of changing the types of the variable
 
 ```rust
@@ -150,9 +161,13 @@ class: left
 # Summary
 
 * `let` declares a variable
+
 * `mut` makes it mutable 
+
 * `const` declares a constant
+
 * `const` can't be mutable
+
 * `shadowing` creates new variable
 
     </textarea>

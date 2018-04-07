@@ -26,7 +26,34 @@ class: left
 
 * In case if it can't you have to provide `type annotations`
 
-* Built in types are `scalar` and `compound`
+---
+class: left
+
+# Type inference
+
+```rust
+fn main() {
+  let x;
+  println!("The value of x is: {}", x);
+}
+```
+
+Rust can't infer since no value is given
+
+```rust
+fn main() {
+  let x: i32;
+  println!("The value of x is: {}", x);
+}
+```
+Type annotation is provided, so don't throw error
+
+---
+class: left
+
+# Builtin Types
+
+* `scalar` and `compound`
 
 ---
 class: left

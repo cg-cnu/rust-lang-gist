@@ -50,7 +50,7 @@ class: left
 # Create Struct instance
 
 ```rust
-let user1 = User {
+let mut user1 = User {
   username: String::from("someusername123"),
   active: true,
   age: 31,
@@ -143,7 +143,7 @@ let user2 = User {
   ..user1
 };
 ```
-
+* the instance should be at the end and shouldn't have a `,` like regular values
 ---
 class: left
 
@@ -176,6 +176,10 @@ let origin = Point(0, 0, 0);
 class: left
 
 # Unit like structs
+
+```rust
+struct QuitMessage; // unit struct
+```
 
 * structs that don’t have any fields!
 
