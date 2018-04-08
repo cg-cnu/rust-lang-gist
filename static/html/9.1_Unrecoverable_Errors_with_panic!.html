@@ -16,7 +16,89 @@ class: middle, center
 ---
 class: left
 
-# Title 1
+# `panic!` macro
+
+* program will print a failure message
+
+* unwind and clean up the stack or abort
+
+* and then quit. 
+
+---
+class: left
+
+# Unwinding the Stack or Aborting in Response to a panic!
+
+* Unwinding 
+
+* Rust walks back the stack and clean up the data from each funciton 
+
+* Take a lot of work and resulting binary will be large
+
+* Unwinding 
+
+* Ends the program with out cleanup and OS will clean the data 
+
+* Process will end quickly and the resulting binary will be small
+
+---
+class: left
+
+# Config
+
+Add `panic = 'abort'` to the appropirate profile 
+
+```TOML
+[profile.release]
+panic = 'abort'
+```
+If you want to abort on panic in release mode
+
+---
+class: left
+
+# Example
+
+Call it intentionally 
+
+```rust
+fn main() {
+  panic!("crash and burn");
+}
+```
+
+```rust
+$ cargo run
+Compiling panic v0.1.0 (file:///projects/panic)
+Finished dev [unoptimized + debuginfo] target(s) in 0.25 secs
+Running `target/debug/panic`
+thread 'main' panicked at 'crash and burn', src/main.rs:2:4
+note: Run with `RUST_BACKTRACE=1` for a backtrace.
+```
+
+caused by another issue...
+
+```rust
+fn main() {
+  let v = vec![1, 2, 3];
+
+  v[99];
+}
+```
+
+---
+class: left
+
+# Using a panic! Backtrace
+
+* A backtrace is a list of all the functions that have been called to get to 
+  this point
+
+* set the `RUST_BACKTRACE` environment variable to get a backtrace of exactly 
+  what happened to cause the error.
+
+* The key to reading the backtrace is to start from the top and read until 
+  you see files you wrote
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
