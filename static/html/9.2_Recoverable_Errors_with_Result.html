@@ -16,8 +16,51 @@ class: middle, center
 ---
 class: left
 
-# Title 1
+# Recoverable Errors
 
+* Most errors aren’t serious enough to stop the program entirely
+
+* When a function fails, it’s for a reason that we can easily interpret and 
+respond to
+
+* If we try to open a file and that operation fails because the file doesn’t 
+exist, we might want to create the file instead of terminating the process.
+
+---
+class: left
+
+# `Result`
+
+```rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+* `T` and `E` are generic type parameters
+
+* `T` represents the type of the value that will be 
+  * returned in a success case 
+  * within the Ok variant
+
+* `E` represents the type of the error that will be 
+  * returned in a failure case 
+  * within the Err variant
+
+---
+class: left
+
+* Because `Result` has these generic type parameters, we can use the Result 
+  type and the functions that the standard library has defined on it in many 
+  different situations where the successful value and error value we want to 
+  return may differ
+
+
+
+
+
+  
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
     </script>
