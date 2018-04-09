@@ -16,7 +16,52 @@ class: middle, center
 ---
 class: left
 
-# Title 1
+# Panic! or Not
+
+* `panic!` can be called for any error situation, recoverable or unrecoverable
+
+* But, You are making the decision on behalf of the code calling your code that 
+the error is unrecoverable 
+
+* `Result` will give the option to the callig code to decide wether to panic or not
+
+* Returning `Result` is a good default choice
+
+
+---
+class: left
+
+# Places to `Panic!`
+
+* When it’s possible that your code could end up in a bad state
+  
+  * The bad state is not something that’s expected to happen occasionally
+
+  * Your code after this point needs to rely on not being in this bad state
+
+  * There’s not a good way to encode this information in the types you use
+
+* it’s Perfectly Fine to Panic in 
+
+  * Examples
+
+  * Prototype Code and 
+
+  * Tests  
+
+* When You Have More Information Than the Compiler
+
+
+---
+class: left
+
+# Guidelines for Error Handling
+
+* 
+
+
+
+
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
