@@ -20,7 +20,7 @@ class: left
 
 # References
 
-* let a function use a value but not take ownership
+* Refer to some value with out taking ownership
 
 * You pass references by appending with `&`
 
@@ -45,13 +45,11 @@ class: left
 
 * arguments and parameters are prepended with `&`
 
-* `&` lets you refer to some value without taking ownership of it
-
 * Since we don't have ownership
   
   * No need to return the values to give back ownership
   
-  * Rust won't `drop` when it goes out of scope
+  * Rust won't `drop` the value when the variable goes out of scope
 
 ---
 class: left
@@ -99,7 +97,7 @@ You can only have one mutable reference to a particular piece of data in a singl
 ```rust
 let mut s = String::from("hello");
 let r1 = &mut s;
-let r2 = &mut s;
+let r2 = &mut s; //throws as error here...
 ```
 
 ```rust
@@ -107,7 +105,7 @@ let mut s = String::from("hello");
 {
     let r1 = &mut s;
 } // r1 goes out of scope here, so we can make a new reference with no problems.
-let r2 = &mut s;
+let r2 = &mut s; // the previous mutable reference is already dropped
 ```
 
 ---

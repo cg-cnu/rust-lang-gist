@@ -18,7 +18,36 @@ class: middle, center
 ---
 class: left
 
-# Title 1
+# Lifetimes
+
+* reference has a lifetime, which is the scope for which that reference is valid
+
+* Just like **types**, lifetimes are implicit and inferred
+
+* Types are annotated, when they can't be infered or multiple types are possible
+
+* Lifetimes are annotated, using generic lifetime parameters 
+
+* Rust’s most distinctive feature
+
+---
+class: left
+
+# Lifetimes Prevent Dangling References
+
+* Prevent dangling references, reference data other than the data we’re 
+  intending to reference
+
+```rust
+{
+  let r;
+  {
+      let x = 5;
+      r = &x;
+  }
+  println!("r: {}", r);
+}
+```
 
     </textarea>
   <script src="https://remarkjs.com/downloads/remark-latest.min.js" type="text/javascript">
