@@ -44,7 +44,7 @@
       </ul>
     </li>
 
-    <li>
+    <!-- <li>
       2 : Guessing Game Tutorial
       <ul>
         <li>
@@ -209,13 +209,12 @@
           <a href="#" onclick="render('10.3_Validating_References_with_Lifetimes')">Validating References with Lifetimes</a>
         </li>
       </ul>
-    </li>
-
+    </li> -->
   </ul>
   <script>
     function render(fileName) {
-      sessionStorage.setItem("mdPath", './src/md/'+fileName+'.md');
-      window.location = 'template.html';
+      sessionStorage.setItem("mdPath", `./src/md/${fileName}.md`);
+      window.location = "template.html";
     }
   </script>
 </body>
