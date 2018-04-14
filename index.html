@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <title>The Rust Programming Language</title>
   <meta name="viewport" content="width=device-width; initial-scale=1.0;">
-  <link rel="stylesheet" type="text/css" href="./src/styles.css">
+  <link rel="stylesheet" type="text/css" href="./static/styles.css">
 
 </head>
 
 <body>
   <a style="display: flex; justify-content: center;">
-    <img style="width: 100px;" src="./src/images/rust-logo-256x256-blk.png" alt="Rust Logo" />
+    <img style="width: 100px;" src="./static/images/rust-logo-256x256-blk.png" alt="Rust Logo" />
   </a>
 
   <h1 align="center">The Rust Programming Language</h1>
@@ -213,7 +213,7 @@
   </ul>
   <script>
     function render(fileName) {
-      sessionStorage.setItem("mdPath", `./src/md/${fileName}.md`);
+      sessionStorage.setItem("mdPath", `./static/md/${fileName}.md`);
       window.location = "template.html";
     }
   </script>
