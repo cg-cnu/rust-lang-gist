@@ -18,7 +18,17 @@
   </script>
   <script type="text/javascript">
     var slideshow = remark.create({
-      sourceUrl: sessionStorage.getItem("mdPath")
+      sourceUrl: sessionStorage.getItem("mdPath"),
+      slideNumberFormat: function (current, total) {
+        const actualSlideCount = total - 2;
+        if (current === 1) {
+          return `Total slides: ${actualSlideCount}`;
+        } else if (current === (total)) {
+          return "Thank You!"
+        } else {
+          return (current - 1) + ' / ' + actualSlideCount;
+        }
+      }
     });
   </script>
 </body>
