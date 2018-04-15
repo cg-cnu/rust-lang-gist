@@ -19,7 +19,9 @@
   <p>The idea is to create slides for
     <a href="https://doc.rust-lang.org/book/second-edition/">
       <strong>The Book</strong>
-    </a> for quick reference and presentations. It is inspired by
+    </a> for quick reference and presentations.
+  </p>
+  <p>Inspired by
     <a href="https://github.com/ashleygwilliams/a-very-brief-intro-to-rust">A very brief intro to Rust</a> and
     <a href="https://github.com/steveklabnik/rust-in-ten-slides">Rust in Ten slides</a>
   </p>
@@ -213,9 +215,9 @@
   </ul>
   <script>
     function render(fileName) {
-      sessionStorage.setItem("mdPath", `./static/md/${fileName}.md`);
+      sessionStorage.setItem("mdPath", `./md/${fileName}.md`);
       sessionStorage.setItem("mdTitle", fileName);
-      window.location = "template.html";
+      window.location = "./static/template.html";
     }
   </script>
 </body>
