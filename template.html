@@ -26,7 +26,7 @@
         } else if (current === (total)) {
           return "Thank You!"
         } else {
-          return (current - 1) + ' / ' + actualSlideCount;
+          return `${sessionStorage.getItem("mdTitle")} : ${(current - 1)} / ${actualSlideCount}`;
         }
       }
     });

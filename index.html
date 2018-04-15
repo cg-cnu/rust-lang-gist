@@ -214,6 +214,7 @@
   <script>
     function render(fileName) {
       sessionStorage.setItem("mdPath", `./static/md/${fileName}.md`);
+      sessionStorage.setItem("mdTitle", fileName);
       window.location = "template.html";
     }
   </script>
