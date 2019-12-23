@@ -5,6 +5,7 @@ class: middle, center
 # Title
 
 ---
+
 class: left
 
 # Slide Title
@@ -12,6 +13,7 @@ class: left
 body
 
 ---
+
 class: left
 
 # Summary
